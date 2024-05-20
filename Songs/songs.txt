@@ -1,0 +1,17 @@
+Song Number, Artist, Song Name, File Path
+1, Ed Sheeran, Shape of You,/Users/ISU/Desktop/SONGS/ED SHEERAN/SHAPE OF YOU.mp3
+2, Ed Sheeran, Beautiful People,/Users/ISU/Desktop/SONGS/ED SHEERAN/BEAUTIFUL PEOPLE.mp3
+3, Justin Bieber, STAY,/Users/ISU/Desktop/SONGS/JUSTIN BIEBER/STAY.mp3
+4, Justin Bieber, GHOST,/Users/ISU/Desktop/SONGS/JUSTIN BIEBER/Ghost.mp3
+5, Michael Jackson, Black or White,/Users/ISU/Desktop/SONGS/MICHAEL JACKSON/BoW.mp3
+6, Michael Jackson, Billie Jean,/Users/ISU/Desktop/SONGS/MICHAEL JACKSON/BJ.mp3
+7, Taylor Swift, All Too Well,/Users/ISU/Desktop/SONGS/TAYLOR SWIFT/ATW.mp3 
+8, Taylor Swift, The Joker and The Queen,/Users/ISU/Desktop/SONGS/TAYLOR SWIFT/JQ.mp3
+9, Lady Gaga, Shallow,/Users/ISU/Desktop/SONGS/LADY GAGA/Shallow.mp3
+10, Lady Gaga, Just Dance,/Users/ISU/Desktop/SONGS/LADY GAGA/Just Dance.mp3
+11, Miley Cyrus, The Climb,/Users/ISU/Desktop/SONGS/MILEY CYRUS/TheClimb.mp3
+12, Miley Cyrus, Party in the U.S.A,/Users/ISU/Desktop/SONGS/MILEY CYRUS/Party.mp3
+13, Avicii, The Nights,/Users/ISU/Desktop/SONGS/OTHER HITS/The Nights.mp3
+14, Luis Fonsi, Despacito,/Users/ISU/Desktop/SONGS/OTHER HITS/Despacito.mp3
+15, The Weeknd, Blinding Lights,/Users/ISU/Desktop/SONGS/OTHER HITS/Blinding Lights .mp3
+16, Shakira, Waka Waka,/Users/ISU/Desktop/SONGS/OTHER HITS/Waka Waka.mp3

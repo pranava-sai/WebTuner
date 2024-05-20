@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .songs-list {
+            list-style: none;
+            padding: 0;
+        }
+        .song-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+        }
+        .song-item:last-child {
+            border-bottom: none;
+        }
+        .song-details {
+            flex: 1;
+        }
+        .song-actions {
+            flex-shrink: 0;
+        }
+        .button {
+            display: inline-block;
+            padding: 8px 16px;
+            margin: 0 5px;
+            background-color: #007BFF;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+        .control-buttons {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Musical Party</h1>
+        <p>By: <strong>Pranava Sai Maganti</strong></p>
+        <ul class="songs-list" id="songsList">
+            <!-- Songs will be dynamically loaded here -->
+        </ul>
+        <div class="control-buttons" id="controlButtons" style="display: none;">
+            <a href="#" class="button" onclick="pauseSong()">Pause</a>
+            <a href="#" class="button" onclick="resumeSong()">Resume</a>
+            <a href="#" class="button" onclick="stopSong()">Stop</a>
+        </div>
+    </div>
+    <script>
+        const songs = [
+            ['1', 'Beautiful People', 'Ed Sheeran', 'Songs/ED_SHEERAN/BEAUTIFUL.mp3'],
+            ['2', 'Shape Of You', 'Ed Sheeran', 'Songs/ED_SHEERAN/SHAPE.mp3'],
+            ['3', 'Ghost', 'Justin Bieber', 'Songs/JUSTIN_BIEBER/Ghost.mp3'],
+            ['4', 'Stay', 'Justin Bieber', 'Songs/JUSTIN_BIEBER/STAY.mp3'],
+            ['5', 'Black Or White', 'Michael Jackson', 'Songs/MICHAEL_JACKSON/BoW.mp3'],
+            ['6', 'Billie Jean', 'Michael Jackson', 'Songs/MICHAEL_JACKSON/BJ.mp3'],
+            ['7', 'Just Dance', 'Lady Gaga', 'Songs/LADY_GAGA/Just_Dance.mp3'],
+            ['8', 'Shallow', 'Lady Gaga', 'Songs/LADY_GAGA/Shallow.mp3'],
+            ['9', 'Party', 'Miley Cyrus', 'Songs/MILEY_CYRUS/Party.mp3'],
+            ['10', 'The Climb', 'Miley Cyrus', 'Songs/MILEY_CYRUS/TheClimb.mp3'],
+            ['11', 'All Too Well', 'Taylor Swift', 'Songs/TAYLOR_SWIFT/ATW.mp3'],
+            ['12', 'The Joker and The Queen', 'Taylor Swift', 'Songs/TAYLOR_SWIFT/JQ.mp3'],
+            ['13', 'Blinding Lights', 'Other Top Hits', 'Songs/OTHER_HITS/Blinding_Lights.mp3'],
+            ['14', 'Despacito', 'Other Top Hits', 'Songs/OTHER_HITS/Despacito.mp3'],
+            ['15', 'The Nights', 'Other Top Hits', 'Songs/OTHER_HITS/The_Nights.mp3'],
+            ['16', 'Waka Waka', 'Other Top Hits', 'Songs/OTHER_HITS/Waka.mp3'],
+        ];
+
+        let currentSound;
+
+        function loadSongs() {
+            const songsList = document.getElementById('songsList');
+            songsList.innerHTML = '';
+            songs.forEach(song => {
+                const li = document.createElement('li');
+                li.className = 'song-item';
+                li.innerHTML = `
+                    <div class="song-details">
+                        <strong>${song[1]}</strong> by ${song[2]}
+                    </div>
+                    <div class="song-actions">
+                        <a href="#" class="button" onclick="playSong('${song[3]}', '${song[1]}', '${song[2]}')">Play</a>
+                    </div>
+                `;
+                songsList.appendChild(li);
+            });
+        }
+
+        function playSong(songPath, songName, songArtist) {
+            console.log(`Now Playing ${songName} by ${songArtist}`);
+            if (currentSound) {
+                currentSound.stop();
+            }
+            currentSound = new Howl({
+                src: [songPath]
+            });
+            currentSound.play();
+            document.getElementById('controlButtons').style.display = 'block';
+        }
+
+        function pauseSong() {
+            if (currentSound) {
+                currentSound.pause();
+            }
+        }
+
+        function resumeSong() {
+            if (currentSound) {
+                currentSound.play();
+            }
+        }
+
+        function stopSong() {
+            if (currentSound) {
+                currentSound.stop();
+                document.getElementById('controlButtons').style.display = 'none';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', loadSongs);
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.1/howler.min.js"></script>
+</body>
+</html>
